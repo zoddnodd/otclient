@@ -188,7 +188,7 @@ void MapView::drawFloor()
                                 lightView->clearShade(pos2D);
                             } else
                                 lightView->setShade(pos2D);
-                        } else                        if(tile->isFullyOpaque()) {
+                        } else if(tile->isFullyOpaque()) {
                             const auto& pos2D = transformPositionTo2D(tile->getPosition(), cameraPosition);
                             lightView->setShade(pos2D, tile->hasTallItems() || tile->hasWideItems(), tile->getBorderDirections());
                         }
@@ -377,7 +377,7 @@ void MapView::updateVisibleTilesCache()
                     if(tile->hasGround())
                         floor.grounds.push_back(tile);
 
-                    if(isDrawingLights() && tile->hasAnyGround()) {
+                    if(isDrawingLights()) {
                         floor.allGrounds.push_back(tile);
                     }
 
