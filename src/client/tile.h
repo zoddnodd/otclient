@@ -192,7 +192,7 @@ private:
     };
 
     bool canRender(const bool drawViewportEdge, const Position& cameraPosition, const AwareRange viewPort, LightView* lightView);
-    void drawCreature(const Point& dest, float scaleFactor, int frameFlags, LightView* lightView = nullptr);
+    void drawCreature(const Point& dest, float scaleFactor, LightView* lightView = nullptr);
     bool checkForDetachableThing();
     void checkTranslucentLight();
 
