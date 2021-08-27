@@ -47,7 +47,7 @@ public:
     Thing();
     virtual ~Thing() {}
 
-    virtual void draw(const Point& /*dest*/, float /*scaleFactor*/, bool /*animate*/, const Highlight& /*highLight*/, TextureType textureType = TextureType::NONE, Color /* color */ = Color::white, bool isCovered = false, LightView* /*lightView*/ = nullptr) {}
+    virtual void draw(const Point& /*dest*/, float /*scaleFactor*/, bool /*animate*/, const Highlight& /*highLight*/, TextureType /*textureType*/ = TextureType::NONE, Color /* color */ = Color::white, bool /*isCovered*/ = false, LightView* /*lightView*/ = nullptr) {}
 
     virtual void setId(uint32 /*id*/) {}
 
