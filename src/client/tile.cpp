@@ -94,7 +94,7 @@ void Tile::drawThing(const ThingPtr& thing, const Point& dest, float scaleFactor
     if(thing->isEffect()) {
         thing->static_self_cast<Effect>()->drawEffect(dest, scaleFactor, isCovered, lightView);
     } else {
-        thing->draw(dest, scaleFactor, animate, m_highlight, TextureType::NONE,Color::white, isCovered, lightView);
+        thing->draw(dest, scaleFactor, animate, m_highlight, TextureType::NONE, Color::white, isCovered, lightView);
 
         m_drawElevation += thing->getElevation();
         if(m_drawElevation > Otc::MAX_ELEVATION)
@@ -102,7 +102,7 @@ void Tile::drawThing(const ThingPtr& thing, const Point& dest, float scaleFactor
     }
 }
 
-void Tile::drawGround(const Point& dest, float scaleFactor, int frameFlags, LightView* lightView)
+void Tile::drawGround(const Point& dest, float scaleFactor, LightView* lightView)
 {
     if(!m_ground) return;
 
@@ -110,7 +110,7 @@ void Tile::drawGround(const Point& dest, float scaleFactor, int frameFlags, Ligh
     drawThing(m_ground, dest - m_drawElevation * scaleFactor, scaleFactor, true, lightView);
 }
 
-void Tile::drawGroundBorder(const Point& dest, float scaleFactor, int frameFlags, LightView* lightView)
+void Tile::drawGroundBorder(const Point& dest, float scaleFactor, LightView* lightView)
 {
     if(!m_countFlag.hasGroundBorder) return;
 
@@ -123,18 +123,18 @@ void Tile::drawGroundBorder(const Point& dest, float scaleFactor, int frameFlags
     }
 }
 
-void Tile::draw(const Point& dest, float scaleFactor, int frameFlags, LightView* lightView)
+void Tile::draw(const Point& dest, float scaleFactor, LightView* lightView)
 {
     if(m_ground && m_ground->isTopGround()) {
-        drawGround(dest, scaleFactor, frameFlags, lightView);
-        drawGroundBorder(dest, scaleFactor, frameFlags, lightView);
+        drawGround(dest, scaleFactor, lightView);
+        drawGroundBorder(dest, scaleFactor, lightView);
     }
 
     if(!hasGround() && !hasGroundBorderToDraw())
         m_drawElevation = 0;
 
-    drawBottom(dest, scaleFactor, frameFlags, lightView);
-    drawTop(dest, scaleFactor, frameFlags, lightView);
+    drawBottom(dest, scaleFactor, lightView);
+    drawTop(dest, scaleFactor, lightView);
 }
 
 void Tile::drawCreature(const Point& dest, float scaleFactor, LightView* lightView)

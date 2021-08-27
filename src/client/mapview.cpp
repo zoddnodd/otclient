@@ -205,13 +205,13 @@ void MapView::drawFloor()
             g_drawPool.startPosition();
             {
                 for(const auto& tile : map.grounds)
-                    tile->drawGround(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, Otc::FUpdateAll, lightView);
+                    tile->drawGround(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, lightView);
 
                 for(const auto& tile : map.borders)
-                    tile->drawGroundBorder(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, Otc::FUpdateAll, lightView);
+                    tile->drawGroundBorder(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, lightView);
 
                 for(const auto& tile : map.bottomTops)
-                    tile->draw(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, Otc::FUpdateAll, lightView);
+                    tile->draw(transformPositionTo2D(tile->getPosition(), cameraPosition), m_scaleFactor, lightView);
             }
 
             g_drawPool.startPosition();
