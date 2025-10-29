@@ -56,7 +56,7 @@ controller:registerEvents(g_game, {
         end
 
         if version >= 860 then
-            g_game.enableFeature(GameCreatureEmblems)
+
 		    g_game.enableFeature(GameAttackSeq)
             g_game.enableFeature(GamePlayerMounts)
             g_game.enableFeature(GameExtendedOpcode)
