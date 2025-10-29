@@ -56,7 +56,10 @@ controller:registerEvents(g_game, {
         end
 
         if version >= 860 then
-            g_game.enableFeature(GameAttackSeq)
+            g_game.enableFeature(GameCreatureEmblems)
+		    g_game.enableFeature(GameAttackSeq)
+            g_game.enableFeature(GamePlayerMounts)
+            g_game.enableFeature(GameExtendedOpcode)
         end
 
         if version >= 862 then
@@ -216,7 +219,7 @@ controller:registerEvents(g_game, {
         end
 
         if version >= 1290 then
-            g_game.enableFeature(GameSequencedPackets)
+            g_game.disableFeature(GameSequencedPackets)
             g_game.enableFeature(GameBosstiary)
             g_game.enableFeature(GameThingClock)
             g_game.enableFeature(GameThingCounter)
